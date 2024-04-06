@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:4.0-xenial
+    ports:
+      -27017:27017
+    networks:
+      - seal6-networks
+    volumes:
+      -mongo_data:/data/db
+
+  redis:
+    container_name: redis
+    image: redis:7.2.4-alpine3.19
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
