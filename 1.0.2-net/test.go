@@ -29,8 +29,8 @@ func initRedis() {
 	redisAddr = redisAddr + ":" + redisPort
 	redisClient = redis.NewClient(&redis.Options{
 		Addr:     redisAddr,
-		Password: "",
-		DB:       0,
+		Password: "", // no password set
+		DB:       0,  // use default DB
 	})
 }
 
